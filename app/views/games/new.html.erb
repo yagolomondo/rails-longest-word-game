@@ -1,0 +1,10 @@
+<% @start_time = Time.now %>
+<h1>Games#new</h1>
+<p><%=@letters.each { |l| l }%></p>
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :time, Time.now - @start_time %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="word" placeholder="word">
+  <input type="submit" value="new">
+</form>
